@@ -1,5 +1,7 @@
+
+
 describe 'Song' do
-  
+
   before(:example) {
     Song.class_variable_set(:@@all, [])
   }
@@ -30,6 +32,7 @@ describe 'Song' do
 
   describe '.all' do
     it 'returns all existing Song instances' do
+      Song.class_variable_set(:@@all, [])
       song = Song.new('Man in the Mirror')
       expect(Song.all).to eq([song])
       purple_rain = Song.new('Purple Rain')
@@ -73,5 +76,3 @@ describe 'Song' do
     end
   end
 end
-
-
