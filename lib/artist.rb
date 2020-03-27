@@ -8,11 +8,8 @@ attr_accessor :name
   def initialize(name)
      @name=name
      @songs = []
+       @@all << self
   end
-
-   def save
-      @@all << self
-   end
 
    def self.all
       @@all
@@ -31,10 +28,10 @@ attr_accessor :name
 
      if self.find_artist(name)
         self.find_artist(name)
+
      else
-        newart=Artist.new(name)
-        newart.save
-        newart
+       Artist.new(name)
+
      end
   end
 
