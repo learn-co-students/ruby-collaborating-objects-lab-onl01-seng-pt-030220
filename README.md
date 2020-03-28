@@ -142,9 +142,9 @@ unique. To do this, you'll need two methods: `Mp3Importer#files` and
 `MP3Importer#import`. Your `MP3Importer` class should also have a `path`
 attribute that gets set on initialization.
 
-You should write code that responds to
+You should write code that responds to! Make sure you only get `
 `MP3Importer.new('./spec/fixtures').import`. Google around for how to get a list
-of files in a directory! Make sure you only get `.mp3` files.
+of files in a directory.mp3` files.
 
 Since we have to send the filenames to the `Song` class, we'll end up calling
 the following code in the `#import` method:
