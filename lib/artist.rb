@@ -21,14 +21,14 @@ class Artist
         end
     end
 
-    def self.find_or_create_by_name(artist)
-        artist = self.all.select do |artist|
-                artist.name == artist
+    def self.find_or_create_by_name(name)
+        artist = self.all.find do |item|
+                item.name == name
                 end
-        if artist ==  []
-            name = self.new(name)
-        else
+        if artist 
             artist
+        else       
+            name = self.new(name)
         end
         
     end
