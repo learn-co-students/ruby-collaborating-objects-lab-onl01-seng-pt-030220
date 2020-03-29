@@ -9,21 +9,21 @@ class MP3Importer
     end
 
     def files
-        search=@path+"/**/*.mp3"
+       
+        search=@path+"/*.mp3"
         files = Dir[search]
-
+        
         files.map do |file|
-            file.split("./"+@path).reject(&:empty?)
-            
-           #binding.pry
-        end
+            file.split(@path+"/").reject(&:empty?)
+            #binding.pry
+        end.flatten
     end
 
     def import
-        Song.new_by_filename(
             files.each do |file_name|
+                Song.new_by_filename(file_name)
             end
-        )   
+        
     end
 end
 
