@@ -26,6 +26,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
     artist_exists = @@all.find { |artist| artist.name == name}
+    bindind.pry
     if artist_exists
       artist_exists
     else
@@ -35,9 +36,7 @@ class Artist
 
   def print_songs
     Song.all.select do |song|
-      binding.pry
       song.name == self
-      binding.pry
     end
   end
 
