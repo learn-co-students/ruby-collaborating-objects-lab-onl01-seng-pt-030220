@@ -8,8 +8,8 @@ class Artist
     @@all << self
   end
 
-  def name=(new_name)
-    @name = new_name
+  def name=(name)
+    @name = name
   end
 
   def self.all
@@ -17,7 +17,7 @@ class Artist
   end
 
   def add_song(song)
-    song.artist = self  
+    song.artist = self
   end
 
   def songs
@@ -25,19 +25,21 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    artist_exists = @@all.find { |artist| artist.name == name}
-    bindind.pry
-    if artist_exists
-      artist_exists
+    artist = @@all.find { |artist| artist.name == name}
+    if artist
+      artist
     else
       Artist.new(name)
     end
   end
 
   def print_songs
-    Song.all.select do |song|
-      song.name == self
-    end
+    songs.each { |song| puts song.name}
+    # Song.all.each do |song|
+    #   if song.artist == self
+    #     puts song.name
+    #   end
+    # end
   end
 
 end
