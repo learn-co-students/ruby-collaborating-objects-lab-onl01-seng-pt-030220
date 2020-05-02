@@ -1,5 +1,7 @@
+require 'pry'
+
 describe 'Song' do
-  
+
   before(:example) {
     Song.class_variable_set(:@@all, [])
   }
@@ -63,15 +65,11 @@ describe 'Song' do
       song.artist_name = "Michael Jackson"
       expect(song.artist).to be_an(Artist)
       expect(song.artist.name).to eq("Michael Jackson")
-
       song_2 = Song.new('Thriller')
       song_2.artist_name = "Michael Jackson"
       expect(song_2.artist).to be_an(Artist)
       expect(song_2.artist.name).to eq("Michael Jackson")
-
       expect(Artist.all.length).to eq(1)
     end
   end
 end
-
-
