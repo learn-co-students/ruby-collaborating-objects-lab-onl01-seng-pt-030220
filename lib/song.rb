@@ -6,7 +6,7 @@ class Song
      @@all =[]
      def initialize(name)
        @name = name
-       @artist =artist
+      #@artist =artist
        @@all << self
      end
 
@@ -24,11 +24,9 @@ class Song
          file = file.split(' - ')
          song = file[1]
          artist = file[0]
-        # binding.pry
          new_song_inst = Song.new(song)
          new_song_inst.artist_name = artist
          new_song_inst
-         #binding.pry
      end
 
 end

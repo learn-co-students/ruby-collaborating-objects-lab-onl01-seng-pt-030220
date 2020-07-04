@@ -8,20 +8,17 @@ class MP3Importer
 
   def files
    file=Dir.entries(@path)
-    file.each do |i|
-       if !i.include?("mp3")
-          file.delete(i)
-       end
+    file.select do |i|
+        i.include?("mp3")
     end
-    file
   end
 
   def import
 
-    files.each do |file1|       #files function will return file ,so we can do each for it
+    files.each do |file1|      
       Song.new_by_filename(file1)
     end
-    
+
   end
 
 end
