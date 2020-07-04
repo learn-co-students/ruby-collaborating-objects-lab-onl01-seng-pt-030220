@@ -28,12 +28,6 @@ attr_accessor :name,:songs
     @songs
   end
 
-  def find_song
-    Song.all.select do |song|
-      song.artist == self
-    end
-  end
-
   def self.find_or_create_by_name(name)
      if self.find_artist(name)
         self.find_artist(name)
@@ -49,7 +43,7 @@ attr_accessor :name,:songs
   end
 
   def print_songs
-    find_song.each do |song|
+    songs.each do |song|
       puts song.name
     end
   end
